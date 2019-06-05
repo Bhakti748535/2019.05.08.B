@@ -4,18 +4,18 @@
     <script>
         /*  var a = 6;
 
-                        function test() {
-                            var a = 7;
+                                        function test() {
+                                            var a = 7;
 
-                            function again() {
-                                var a = 8;
-                                alert(a); //a
-                            }
-                            again();
-                            alert(a); //b
-                        }
-                        test();
-                        alert(a); //c*/
+                                            function again() {
+                                                var a = 8;
+                                                alert(a); //a
+                                            }
+                                            again();
+                                            alert(a); //b
+                                        }
+                                        test();
+                                        alert(a); //c*/
 
         /*  function getFunc() {
               var a = 7;
@@ -26,13 +26,15 @@
           var f = getFunc();
           f(5);*/
 
-        function orange() {
-            if (true) {
+        function orange(blueberry) {
+            if (blueberry > 10) {
                 var a = 5;
+            } else {
+                var a = 100;
             }
             alert(a);
         }
-        orange();
+        orange(3);
     </script>
 </body>
 
