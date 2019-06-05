@@ -1,24 +1,22 @@
 <html>
 
-<head>
-    <title>Bhakti webpage</title>
+<body>
+    <script>
+        var a = 6;
 
-    <head>
+        function test() {
+            var a = 7;
 
-        <body>
-            <div>
-                <section>
-                    <article>
-                        <img src="flower.jpg">
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        all about flowers and cats . a new change
-                    </article>
-                </section>
-
-            </div>
-        </body>
+            function again() {
+                var a = 8;
+                alert(a); //a
+            }
+            again();
+            alert(a); //b
+        }
+        test();
+        alert(a); //c
+    </script>
+</body>
 
 </html>
