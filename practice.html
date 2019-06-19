@@ -7,11 +7,16 @@
     <script src="https://code.createjs.com/1.0.0/createjs.min.js">
     </script>
     <script>
-        var stage;
+        var stage, sunshape;
 
         function init() {
             stage = new createjs.Stage("stage-canvas");
-            alert(stage.canvas);
+            sunshape = new createjs.Shape();
+            sunshape.graphics.beginFill("#F00");
+            sunshape.graphics.drawCircle(0, 0, 25);
+            sunshape.graphics.endFill();
+            stage.addChild(sunshape);
+            stage.update();
         }
     </script>
     <style>
