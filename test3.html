@@ -16,8 +16,29 @@
             cursor: pointer;
         }
         
-        .button1 {
-            font-size: 10px;
+        .button1 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: all 0.5s;
+        }
+        
+        .button1 span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .button1:hover span {
+            padding-right: 25px;
+        }
+        
+        .button1:hover span:after {
+            opacity: 1;
+            right: 0;
         }
         
         .button2 {
@@ -52,7 +73,7 @@
 <body>
     Let's learn about HTML5 Contains
     <p></p>
-
+    <button class="button button1">Heyy!!!</button>
     <button class="button button4">Bhakti</button>
     <button class="button button5">24px</button>
     <div>

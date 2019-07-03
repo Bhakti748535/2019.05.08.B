@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        button {
+            display: block;
+            margin: 20px 0 0 0;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 60px;
+            margin: 10px;
+            float: left;
+            font-size: 18px;
+        }
+        
+        p {
+            clear: left;
+            font-weight: bold;
+            font-size: 18px;
+            color: green;
+            margin: 5px 10px 0 10px;
+            padding: 2px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Assignment questions</title>
+</head>
+
+<body>
+    <textarea>jQuery</textarea>
+    <textarea>JavaScript</textarea>
+    <p>jQuery</p>
+    <p>JavaScript</p>
+    <button id="button1">Click Here</button>
+    <script>
+        $('#button1').click(function() {
+            $("textarea").css("border", "2px solid red").add("p")
+                .css("border", "2px solid red");
+            $("p").add("span").add("textarea").css("background", "pink");
+            $("p").add("<span>Exercises</span>").appendTo(document.body);
+        });
+    </script>
+</body>
+
+</html>
