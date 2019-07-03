@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.createjs.com/createjs-2013.12.12.min.js"></script>
+<title>Lon Hosford Basic CreateJS Bitmap Animation</title>
+<script>
+	var stage, queue;
+	function preload() {
+		queue = new createjs.LoadQueue(false);
+		queue.addEventListener("complete", init);
+		queue.loadManifest([
+			{id:"monkey-right",  src: "monkey-looking-right-hi.png"}
+							]);
+	}
+	function init() {
+		console.log("init()");
+		// Scale factors for bitmap
+		var scaleX = scaleY = .25;
+		stage = new createjs.Stage("stage-canvas");
+		var bitmap = new createjs.Bitmap(queue.getResult("monkey-right"));
+		// Scale bitmap 
+		bitmap.setTransform(0,0,scaleX,scaleY);
+		// Reset registration point from 0,0 to center of bitmap
+		bitmap.regX = bitmap.image.width / 2;
+		bitmap.regY = bitmap.image.height / 2;
+		stage.addChild(bitmap);
+		stage.update();
+		stage.addEventListener("stagemousemove", function(e){
+			bitmap.x = e.stageX;
+			bitmap.y = e.stageY;
+			stage.update();
+		}); 
+	}
+
+</script>
+<style>
+	body {
+		margin: 0 ;
+		padding: 15px;
+		background-color: #ccc;
+	}
+	canvas {
+		border: solid 2px #000;
+		background-color: #fff;
+		display: block;
+		margin: 0px auto 0px auto;
+		padding-left: 0;
+		padding-right: 0;
+	}
+</style>
+</head>
+<body onLoad="preload();">
+<canvas id="stage-canvas" width="550" height="400">
+	This web browser does not support canvas.
+</canvas>
+</body>
+</html>

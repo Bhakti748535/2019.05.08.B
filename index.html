@@ -1,15 +1,55 @@
 <html>
-
-<body>
+<head>
     <script>
-        let firstname = "Bhakti";
-        let lastname = "verma";
-        let a = 9;
-        let b = 10;
-        console.log("value of a is: ");
-        console.log("value of b is: ");
-        let sum = a + b;
-        alert("hello " + firstname + " the ans is" + a + b)
-    </script> hello </body>
+    function myFunction() {
+        var x = document.getElementById("myDiv");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    </script>
+    <style>
+        .button {
+          background-color: rgb(172, 58, 224);
+          border: none;
+          color: rgba(237, 240, 236, 0.945);
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+            .button1 {font-size: 10px;}
+            .button2 {font-size: 12px;}
+            .button3 {font-size: 16px;}
+            .button4 {font-size: 20px;}
+            .button5 {font-size: 24px;}
+        </style>
+</head>
+<body>
+<div><article>Dogs are amazing and wonderful. Everyone should have a Dog Companion</article>
+<section>
+<p>A Gallery of DOGS</p>
 
+</section>
+<article>Buttons are very interesting and important</article>
+<section>
+<p>A Gallery of BUTTONS</p>    
+<a href="http://google.com" class="button">Link Button</a>
+
+<input type="button" class="button" value="Button with Function" onclick="myFunction()">
+<button class="button button5">24px</button>
+</section>
+</div>
+
+<div id="myDiv">
+        <img src="puppies.png" width="200"/>
+        <H1> this is my Content!</H1>
+</div>
+
+</body>
 </html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.createjs.com/createjs-2013.12.12.min.js"></script>
+<title>Lon Hosford Basic CreateJS Bitmap Animation</title>
+<script>
+	var stage, queue;
+	function preload() {
+		// Create a PreloadJS queue object
+		queue = new createjs.LoadQueue(false);
+		// Add a listener for complete and point to your first function to run
+		queue.addEventListener("complete", init);
+		// An array of Javascript objects with a user id for each image and the image file name
+		queue.loadManifest([
+		{id:"monkey-left",  src: "monkey-looking-left-hi.png"},
+		{id:"monkey-right",  src: "monkey-looking-right-hi.png"}
+						]);
+	}
+	function init() {
+		stage = new createjs.Stage("stage-canvas");
+		// Pull the image from the queue using the id
+		var bitmap1 = new createjs.Bitmap(queue.getResult("monkey-left"));
+		// Scale bitmap by 25%
+		bitmap1.setTransform(0,0,.25,.25);
+		// Use the image
+		stage.addChild(bitmap1);
+		bitmap1.x = 0;
+		bitmap1.y = 0;
+		// Pull the image from the queue using the id
+		var bitmap2 = new createjs.Bitmap(queue.getResult("monkey-right"));
+		// Scale bitmap by 25%
+		bitmap2.setTransform(0,0,.25,.25);
+		// Use the image
+		stage.addChild(bitmap2);
+		bitmap2.x = 25;
+		bitmap2.y = 250;
+		stage.update();
+		createjs.Tween.get(bitmap1, {loop:true})
+		.to({x:425, y:300}, 3000)
+		.to({x:25, y:25}, 3000);
+		createjs.Tween.get(bitmap2, {loop:true})
+		.to({x:25, y:25}, 3000)
+		.to({x:25, y:250}, 3000);
+		createjs.Ticker.addEventListener("tick", tickHandler);
+	}	
+	function tickHandler(e){
+		stage.update();
+		
+	}
+</script>
+<style>
+	body {
+		margin: 0 ;
+		padding: 15px;
+		background-color: #ccc;
+	}
+	canvas {
+		border: solid 2px #000;
+		background-color: #fff;
+		display: block;
+		margin: 0px auto 0px auto;
+		padding-left: 0;
+		padding-right: 0;
+	}
+</style>
+</head>
+<body onLoad="preload();">
+<canvas id="stage-canvas" width="550" height="400">
+	This web browser does not support canvas.
+</canvas>
+</body>
+</html>
